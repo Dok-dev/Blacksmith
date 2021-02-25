@@ -126,7 +126,7 @@ public class BlacksmithTrait extends Trait {
 		}
 
 
-		ItemStack hand = player.getItemInHand();
+		ItemStack hand = player.getInventory().getItemInMainHand();
 
 		if(session!=null){
 			//timeout
@@ -206,10 +206,10 @@ public class BlacksmithTrait extends Trait {
                 plugin.withdraw(player);
 		session.beginReforge();
 		if (npc.getEntity() instanceof Player)
-			((Player) npc.getEntity()).setItemInHand(player.getItemInHand());
+			((Player) npc.getEntity()).getInventory().setItemInMainHand(player.getInventory().getItemInMainHand());
         else
-        	((LivingEntity) npc.getEntity()).getEquipment().setItemInHand(player.getItemInHand());
-		player.setItemInHand(null);
+        	((LivingEntity) npc.getEntity()).getEquipment().setItemInMainHand(player.getInventory().getItemInMainHand());
+		player.getInventory().setItemInMainHand(null);
 	}
 
 	private class ReforgeSession implements Runnable {
@@ -221,16 +221,16 @@ public class BlacksmithTrait extends Trait {
 		private ReforgeSession(Player player, NPC npc) {
 			this.player = player;
 			this.npc = npc;
-			reforge = player.getItemInHand();
+			reforge = player.getInventory().getItemInMainHand();
 		}
 
 		@Override
 		public void run() {
 			player.sendMessage( reforgeItemInHand() ? successMsg : failMsg);
 			if (npc.getEntity() instanceof Player)
-				((Player) npc.getEntity()).setItemInHand(null);
+				((Player) npc.getEntity()).getInventory().setItemInMainHand(null);
             else
-                ((LivingEntity) npc.getEntity()).getEquipment().setItemInHand(null);
+                ((LivingEntity) npc.getEntity()).getEquipment().setItemInMainHand(null);
 			if (!disabledelay)
 			{
 				if (dropItem)
@@ -246,7 +246,7 @@ public class BlacksmithTrait extends Trait {
 			}
 			else
 			{
-				player.setItemInHand(reforge);
+				player.getInventory().setItemInMainHand(reforge);
 			}
 			session = null;
 			// Start cooldown
@@ -304,7 +304,7 @@ public class BlacksmithTrait extends Trait {
 		// Return if the session should end
 		private boolean handleClick() {
 			// Prevent player from switching items during session
-			if (!reforge.equals(player.getItemInHand())) {
+			if (!reforge.equals(player.getInventory().getItemInMainHand())) {
 				player.sendMessage( itemChangedMsg);
 				return true;
 			}
