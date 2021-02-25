@@ -1,11 +1,11 @@
 name: Blacksmith
 author: aPunch, jrbudda, HurricanKai
-version: 1.12
+version: 1.16
 main: net.apunch.blacksmith.BlacksmithPlugin
 depend: [Citizens, Vault]
 softdepend: [HyperConomy]
 
-api-version: 1.13
+api-version: 1.16
 
 commands:
   blacksmithreload:

@@ -6,16 +6,16 @@
 
     <groupId>net.apunch</groupId>
     <artifactId>blacksmith</artifactId>
-    <version>1.13-SNAPSHOT</version>
+    <version>1.16-SNAPSHOT</version>
     <name>Blacksmith</name>
     <description>Blacksmith Character for the CitizensAPI</description>
 
     <!-- Properties -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <bukkit.version>1.13.1-R0.1-SNAPSHOT</bukkit.version>
-        <citizensapi.version>2.0.24-SNAPSHOT</citizensapi.version>
-        <vault.version>1.5.6</vault.version>
+        <bukkit.version>1.15.2-R0.1-SNAPSHOT</bukkit.version>
+        <citizensapi.version>2.0.26-SNAPSHOT</citizensapi.version>
+        <vault.version>1.7.3</vault.version>
         <hyperconomy.version>0.975.7-SNAPSHOT</hyperconomy.version>
         <build.number>Unknown</build.number>
     </properties>
@@ -24,7 +24,7 @@
     <repositories>
 		<repository>
             <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
 		</repository>
 		<repository>
 			<id>citizens-repo</id>
@@ -82,7 +82,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
